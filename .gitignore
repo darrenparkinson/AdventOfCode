@@ -1,6 +1,7 @@
 download_input.sh
 2020/Day06
 archive/
+pkg/aocdl/
 
 # Created by https://www.toptal.com/developers/gitignore/api/go,vim,macos,windows,visualstudiocode,python
 # Edit at https://www.toptal.com/developers/gitignore?templates=go,vim,macos,windows,visualstudiocode,python
