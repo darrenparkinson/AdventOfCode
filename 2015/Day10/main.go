@@ -24,7 +24,7 @@ func part1(input []string) int {
 
 	result := input[0]
 	for i := 0; i < 40; i++ {
-		result = phoneticBuilder(result)
+		result = phonetic(result)
 	}
 	return len(result)
 }
@@ -32,7 +32,7 @@ func part1(input []string) int {
 func part2(input []string) int {
 	result := input[0]
 	for i := 0; i < 50; i++ {
-		result = phoneticBuilder(result)
+		result = phonetic(result)
 	}
 	return len(result)
 }

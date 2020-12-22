@@ -9,15 +9,18 @@ import (
 
 func main() {
 
-	start := time.Now()
 	input := aocutils.ReadInputAsRows("input.txt")
 
+	start := time.Now()
 	result1 := part1(input)
 	log.Println("Result1:", result1)
+	log.Println("completed in ", time.Since(start))
+
+	start = time.Now()
 	result2 := part2(input)
 	log.Println("Result2:", result2)
-
 	log.Println("completed in ", time.Since(start))
+
 }
 
 func part1(input []string) int {

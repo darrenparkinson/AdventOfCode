@@ -9,13 +9,13 @@ import (
 
 func TestPart1(t *testing.T) {
 	input := aocutils.ReadInputAsRows("input_test.txt")
-	want := 998996
+	want := 165
 	got := part1(input)
 	assert.Equal(t, want, got)
 }
 func TestPart2(t *testing.T) {
 	input := aocutils.ReadInputAsRows("input_test.txt")
-	want := 4
+	want := 208
 	got := part2(input)
 	assert.Equal(t, want, got)
 }

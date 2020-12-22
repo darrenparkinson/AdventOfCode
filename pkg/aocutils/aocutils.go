@@ -6,10 +6,24 @@ import (
 	"log"
 	"os"
 	"strconv"
+	"strings"
 )
 
 // StringToIntSlice returns a slice of Ints given a string of ints.
 func StringToIntSlice(input string) []int {
+	result := make([]int, len(input))
+	for i, r := range input {
+		s, err := strconv.Atoi(string(r))
+		if err != nil {
+			log.Fatal(err)
+		}
+		result[i] = s
+	}
+	return result
+}
+
+// StringSliceToIntSlice returns a slice of Ints given a slice of strings of ints.
+func StringSliceToIntSlice(input []string) []int {
 	result := make([]int, len(input))
 	for i, r := range input {
 		s, err := strconv.Atoi(string(r))
@@ -83,6 +97,34 @@ func ReadInputAsInts(filename string) []int {
 			log.Fatal(err)
 		}
 		lines = append(lines, i)
+	}
+	return lines
+}
+
+// ReadInputRowsAsInts reads the input file and returns a slice of ints containing each line.
+// It expects there to be rows of comma separates ints on each line.
+func ReadInputRowsAsInts(filename string) [][]int {
+	file, err := os.Open(filename)
+	if err != nil {
+		panic(err)
+	}
+	defer file.Close()
+
+	scanner := bufio.NewScanner(file)
+
+	var lines [][]int
+	for scanner.Scan() {
+		s := scanner.Text()
+		si := strings.Split(strings.TrimSpace(s), ",")
+		var line []int
+		for _, r := range si {
+			i, err := strconv.Atoi(string(r))
+			if err != nil {
+				log.Fatal(err)
+			}
+			line = append(line, i)
+		}
+		lines = append(lines, line)
 	}
 	return lines
 }
